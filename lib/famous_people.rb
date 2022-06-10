@@ -1,0 +1,2 @@
+class FamousPeople
+end
