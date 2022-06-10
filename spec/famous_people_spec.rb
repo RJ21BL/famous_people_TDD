@@ -37,7 +37,11 @@ describe FamousPeople do
     end
 
     context 'when there is a variety of data types' do
-      it 'should raise an error when the data type is a integer' do
+      it 'should raise an error when the input data type is an integer' do
+        incorrect_data_type = famous_people.find_by_nationality(1)
+        error_message = 'You can only input a symbol or string!'
+
+        expect { incorrect_data_type }.to raise_error error_message
       end
 
       it 'should not raise an error if the data type is a symbol or string' do
