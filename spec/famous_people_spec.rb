@@ -42,7 +42,8 @@ describe FamousPeople do
         expect { famous_people.find_by_nationality(1) }.to raise_error integer_error_message
       end
 
-      it 'should not raise an error if the data type is a symbol or string' do
+      it 'should not raise an error if the data type is a string' do
+        expect { famous_people.find_by_nationality('german') }.not_to raise_error
       end
     end
   end
