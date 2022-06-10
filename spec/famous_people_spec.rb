@@ -12,7 +12,9 @@ describe FamousPeople do
           newton: :british,
           lennon: :british
         })
-        find_person_by_nationality = famous_people.find_by_nationality
+        find_person_by_nationality = famous_people.find_by_nationality(:german)
+
+        expect(find_person_by_nationality).to eq([:einstein])
       end
     end
 
