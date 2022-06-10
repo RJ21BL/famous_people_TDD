@@ -29,19 +29,17 @@ describe FamousPeople do
 
     context 'when there are no people matched to the nationality' do
       it 'should raise an error' do
-        find_person_by_nationality = famous_people.find_by_nationality(:irish)
-        error_message = 'Nationality not matched!'
+        nationality_error_message = 'Nationality not matched!'
 
-        expect { find_person_by_nationality }.to raise_error error_message
+        expect { famous_people.find_by_nationality(:irish) }.to raise_error nationality_error_message
       end
     end
 
     context 'when there is a variety of data types' do
       it 'should raise an error when the input data type is an integer' do
-        incorrect_data_type = famous_people.find_by_nationality(1)
-        error_message = 'You can only input a symbol or string!'
+        integer_error_message = 'You can only input a symbol or string!'
 
-        expect { incorrect_data_type }.to raise_error error_message
+        expect { famous_people.find_by_nationality(1) }.to raise_error integer_error_message
       end
 
       it 'should not raise an error if the data type is a symbol or string' do
