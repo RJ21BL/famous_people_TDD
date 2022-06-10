@@ -1,1 +1,1 @@
-A small program to practise the use of TDD.
+A small program to practice the use of TDD.
