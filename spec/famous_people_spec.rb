@@ -21,6 +21,9 @@ describe FamousPeople do
 
     context 'when there are multiple people matched to the nationality' do
       it 'should return all the names' do
+        find_person_by_nationality = famous_people.find_by_nationality(:british)
+
+        expect(find_person_by_nationality).to eq([:richard, :newton, :lennon])
       end
     end
 
