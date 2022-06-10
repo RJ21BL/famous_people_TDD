@@ -29,6 +29,10 @@ describe FamousPeople do
 
     context 'when there are no people matched to the nationality' do
       it 'should raise an error' do
+        find_person_by_nationality = famous_people.find_by_nationality(:irish)
+        error_message = 'Nationality not matched!'
+
+        expect { find_person_by_nationality }.to raise_error error_message
       end
     end
 
