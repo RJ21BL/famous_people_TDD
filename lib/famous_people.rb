@@ -10,10 +10,13 @@ class FamousPeople
       end
     end.keys
 
-    error_message = 'Nationality not matched!'
+    nationality_error_message = 'Nationality not matched!'
+    integer_error_message = 'You can only input a symbol or string!'
 
-    if matched_person == []
-      raise error_message
+    if nationality.is_a? Integer
+      raise integer_error_message
+    elsif matched_person == []
+      raise nationality_error_message
     else
       matched_person
     end
