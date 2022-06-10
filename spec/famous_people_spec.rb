@@ -1,17 +1,18 @@
 require 'famous_people'
 
 describe FamousPeople do
+  let(:famous_people) { FamousPeople.new({
+    peter: :hongkong,
+    richard: :british,
+    einstein: :german,
+    napoleon: :french,
+    newton: :british,
+    lennon: :british
+  }) }
+
   describe '#find_by_nationality' do
     context 'when there is only 1 person matched to the nationality' do
       it 'should return the name' do
-        famous_people = FamousPeople.new({
-          peter: :hongkong,
-          richard: :british,
-          einstein: :german,
-          napoleon: :french,
-          newton: :british,
-          lennon: :british
-        })
         find_person_by_nationality = famous_people.find_by_nationality(:german)
 
         expect(find_person_by_nationality).to eq([:einstein])
