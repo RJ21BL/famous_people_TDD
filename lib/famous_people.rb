@@ -4,11 +4,19 @@ class FamousPeople
   end
 
   def find_by_nationality(nationality)
-    matched_person = @people.select do |person, persons_nationality|
-      if persons_nationality == nationality
-        @people[person]
-      end
-    end.keys
+    if nationality.is_a? String
+      matched_person = @people.select do |person, persons_nationality|
+        if persons_nationality == nationality.to_sym
+          @people[person]
+        end
+      end.keys
+    else
+      matched_person = @people.select do |person, persons_nationality|
+          if persons_nationality == nationality
+            @people[person]
+          end
+        end.keys
+    end
 
     nationality_error_message = 'Nationality not matched!'
     integer_error_message = 'You can only input a symbol or string!'
