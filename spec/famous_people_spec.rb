@@ -54,5 +54,11 @@ describe FamousPeople do
         expect { famous_people.find_by_nationality(nil) }.to raise_error nil_input_error_message
       end
     end
+
+    context 'when the input is an array' do
+      it 'should return a list of people' do
+        expect(famous_people.find_by_nationality([:hongkong, :german])).to eq(:peter, :einstein)
+      end
+    end
   end
 end
