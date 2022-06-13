@@ -6,16 +6,12 @@ class FamousPeople
   def find_by_nationality(nationality = nil)
     if nationality.is_a? String
       matched_person = @people.select do |person, persons_nationality|
-        if persons_nationality == nationality.to_sym
-          @people[person]
-        end
+        @people[person] if persons_nationality == nationality.to_sym
       end.keys
     else
       matched_person = @people.select do |person, persons_nationality|
-          if persons_nationality == nationality
-            @people[person]
-          end
-        end.keys
+        @people[person] if persons_nationality == nationality
+      end.keys
     end
 
     nationality_error_message = 'Nationality not matched!'

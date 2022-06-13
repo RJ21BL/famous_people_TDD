@@ -1,14 +1,14 @@
 require 'famous_people'
 
 describe FamousPeople do
-  let(:famous_people) { FamousPeople.new({
+  let(:famous_people) do FamousPeople.new({
     peter: :hongkong,
     richard: :british,
     einstein: :german,
     napoleon: :french,
     newton: :british,
     lennon: :british
-  }) }
+  }) end
 
   describe '#find_by_nationality' do
     context 'when there is only 1 person matched to the nationality' do
