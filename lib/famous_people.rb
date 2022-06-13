@@ -26,7 +26,7 @@ class FamousPeople
       raise integer_error_message
     elsif nationality.nil?
       raise nil_input_error_message
-    elsif matched_person == []
+    elsif matched_person.empty?
       raise nationality_error_message
     else
       matched_person
