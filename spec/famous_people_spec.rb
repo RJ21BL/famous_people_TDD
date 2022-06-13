@@ -46,5 +46,13 @@ describe FamousPeople do
         expect { famous_people.find_by_nationality('german') }.not_to raise_error
       end
     end
+
+    context 'when the input is nil' do
+      it 'should raise an error if nil has been inputted' do
+        nil_input_error_message = 'You must pass in data!'
+
+        expect { famous_people.find_by_nationality(nil) }.to raise_error nil_input_error_message
+      end
+    end
   end
 end
