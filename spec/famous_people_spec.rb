@@ -49,7 +49,7 @@ describe FamousPeople do
 
     context 'when the input is nil' do
       it 'should raise an error if nil has been inputted' do
-        nil_input_error_message = 'You must pass in data!'
+        nil_input_error_message = 'Pass in a string or symbol!'
 
         expect { famous_people.find_by_nationality(nil) }.to raise_error nil_input_error_message
       end
