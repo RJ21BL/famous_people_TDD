@@ -8,7 +8,8 @@ describe FamousPeople do
     napoleon: :french,
     newton: :british,
     lennon: :british
-  }) end
+    })
+  end
 
   describe '#find_by_nationality' do
     context 'when there is only 1 person matched to the nationality' do
@@ -37,7 +38,7 @@ describe FamousPeople do
 
     context 'when there is a variety of data types' do
       it 'should raise an error when the input data type is an integer' do
-        integer_error_message = 'You can only input a symbol or string!'
+        integer_error_message = 'Input a symbol or string!'
 
         expect { famous_people.find_by_nationality(1) }.to raise_error integer_error_message
       end
@@ -49,15 +50,9 @@ describe FamousPeople do
 
     context 'when the input is nil' do
       it 'should raise an error if nil has been inputted' do
-        nil_input_error_message = 'Pass in a string or symbol!'
+        nil_input_error_message = 'No data inputted!'
 
-        expect { famous_people.find_by_nationality(nil) }.to raise_error nil_input_error_message
-      end
-    end
-
-    context 'when the input is an array' do
-      it 'should return a list of people' do
-        expect(famous_people.find_by_nationality([:hongkong, :german])).to eq(:peter, :einstein)
+        expect { famous_people.find_by_nationality }.to raise_error nil_input_error_message
       end
     end
   end

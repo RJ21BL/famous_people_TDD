@@ -4,28 +4,25 @@ class FamousPeople
   end
 
   def find_by_nationality(nationality = nil)
-    if nationality.is_a? String
-      matched_person = @people.select do |person, persons_nationality|
-        @people[person] if persons_nationality == nationality.to_sym
-      end.keys
-    else
-      matched_person = @people.select do |person, persons_nationality|
-        @people[person] if persons_nationality == nationality
-      end.keys
-    end
+    converted_nationality = nationality.to_sym if nationality.is_a? String
 
     nationality_error_message = 'Nationality not matched!'
-    integer_error_message = 'You can only input a symbol or string!'
-    nil_input_error_message = 'Pass in a string or symbol!'
+    integer_error_message = 'Input a symbol or string!'
+    nil_input_error_message = 'No data inputted!'
 
-    if nationality.is_a? Integer
-      raise integer_error_message
-    elsif nationality.nil?
-      raise nil_input_error_message
-    elsif matched_person.empty?
-      raise nationality_error_message
-    else
-      matched_person
-    end
+    find_person = @people.select do |person, persons_nationality|
+      if nationality.nil?
+        raise nil_input_error_message
+      elsif nationality.is_a? Integer
+        raise integer_error_message
+      elsif persons_nationality == converted_nationality
+        @people[person]
+      elsif persons_nationality == nationality
+        person
+      end
+    end.keys
+
+      raise nationality_error_message if find_person.empty?
+      find_person
   end
 end
